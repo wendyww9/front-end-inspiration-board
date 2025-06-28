@@ -26,6 +26,7 @@ const convertFromApiCard = (card) => {
 const getAllBoardsFromAPI = () => {
   return axios.get(`${KBaseURL}/boards`)
     .then(response => {
+      console.log('Boards API response:', response.data);
       return response.data.map(convertFromApiBoard);
     })
     .catch(error => {
