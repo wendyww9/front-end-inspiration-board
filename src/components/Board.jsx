@@ -1,20 +1,27 @@
 import PropTypes from 'prop-types';
 import CardList from './CardList';
 import NewCardForm from './NewCardForm';
+import './Board.css';
 
 const Board = (props) => {
   const { board, cards, onDeleteCard, onLikeCard, onPostCard } = props;
 
   return (
-    <main className="board">
-      <h1>{board.title}</h1>
-      <NewCardForm onPostCard={onPostCard} boardId={board.id} />
-      <CardList
-        cards={cards}
-        onDeleteCard={onDeleteCard}
-        onLikeCard={onLikeCard}
-      />
-    </main>
+    <section className="board board-flex">
+      <div className="board-header">
+        <h1>{board.title} - {board.owner}</h1>
+      </div>
+      <div className="board-cards-list">
+        <CardList
+          cards={cards}
+          onDeleteCard={onDeleteCard}
+          onLikeCard={onLikeCard}
+        />
+      </div>
+      <div className="board-new-card-form">
+        <NewCardForm onPostCard={onPostCard} boardId={board.id} />
+      </div>
+    </section>
   );
 };
 

@@ -1,24 +1,27 @@
 .card_item {
-  background: white;
-  border: 1px solid #e1e5e9;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #e6f9ed; /* greenish background */
+  border: 1.5px solid #b7e4c7;
+  border-radius: 12px;
+  padding: 28px 24px;      /* Increased padding */
+  margin-bottom: 20px;     /* More space between cards */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
   transition: all 0.2s ease-in-out;
   max-width: 100%;
+  min-height: 120px;       /* Make cards taller */
+  font-size: 1.2rem;       /* Larger text */
 }
 
 .card_item:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
   transform: translateY(-1px);
 }
 
 .card_message {
-  margin: 0 0 12px 0;
-  font-size: 16px;
+  text-align: center;
+  margin: 0 0 18px 0;
+  font-size: 1.25rem;      /* Larger message text */
   line-height: 1.5;
-  color: #333;
+  color: #22543d;
   word-wrap: break-word;
 }
 

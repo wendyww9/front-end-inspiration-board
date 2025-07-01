@@ -1,0 +1,62 @@
+.board {
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.board h1 {
+  font-size: 2rem;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 700px) {
+  .board {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  .board h1 {
+    font-size: 1.3rem;
+  }
+}
+
+.board-flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 500px;
+}
+
+.board-header {
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.board-header h1 {
+  font-size: 2rem;
+  color: #2d3748;
+  margin-bottom: 0.3rem;
+}
+
+.board-header h2 {
+  font-size: 1.1rem;
+  color: #ad1457;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+.board-cards-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-bottom: 1.5rem;
+  overflow-y: auto;
+}
+
+.board-new-card-form {
+  margin-top: auto;
+}

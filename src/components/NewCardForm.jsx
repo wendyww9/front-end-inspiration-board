@@ -31,6 +31,7 @@ const NewCardForm = ({ onPostCard, boardId }) => {
       message: '',
       board_id: boardId,
     });
+    setErrorData('');
   };
 
   const handleChange = (event) => {

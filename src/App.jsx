@@ -156,30 +156,47 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>Inspiration Board</h1>
-      <div className="boards-list">
-        <h2>Boards</h2>
-        <ul>
-          {boardData.map(board => (
-            <li key={board.id}>
-              <button onClick={() => handleSelectBoard(board)}>
-                {board.title}
-              </button>
-            </li>
-          ))}
-        </ul>
+      <h1>
+        <span className="star">✨</span>
+        <span className="board-title">Inspiration Board</span>
+        <span className="star">✨</span>
+      </h1>
+      <div className="main-content">
+        <section className="boards-list">
+          <h2>Boards</h2>
+          <ul>
+            {[...boardData]
+              .sort((a, b) => a.title.localeCompare(b.title))
+              .map(board => (
+                <li key={board.id}>
+                  <button
+                    onClick={() =>
+                      selectedBoard && selectedBoard.id === board.id
+                        ? setSelectedBoard(null)
+                        : handleSelectBoard(board)
+                    }
+                    className={selectedBoard && selectedBoard.id === board.id ? 'selected' : ''}
+                  >
+                    {board.title}
+                  </button>
+                </li>
+              ))}
+          </ul>
+          <NewBoardForm onCreateBoard={addBoard} />
+        </section>
+        <section className="board-cards-area">
+          {selectedBoard && (
+            <Board
+              key={selectedBoard.id}
+              board={selectedBoard}
+              cards={cardData}
+              onDeleteCard={deleteCard}
+              onLikeCard={likeCardHandler}
+              onPostCard={addCard}
+            />
+          )}
+        </section>
       </div>
-      {selectedBoard && (
-        <Board
-          key={selectedBoard.id}
-          board={selectedBoard}
-          cards={cardData}
-          onDeleteCard={deleteCard}
-          onLikeCard={likeCardHandler}
-          onPostCard={addCard}
-        />
-      )}
-      <NewBoardForm onCreateBoard={addBoard} />
     </div>
   );
 };

@@ -1,1 +1,40 @@
+.card_list {
+  display: flex;
+  flex-direction: row; /* Stack cards in rows first */
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 1px;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.card_list > li {
+  text-align: center;
+  flex: 1 1 160px;
+  min-width: 120px;
+  max-width: 260px;
+  display: flex;
+}
+
+@media (max-width: 800px) {
+  .card_list {
+    gap: 6px;
+  }
+  .card_list > li {
+    min-width: 100px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .card_list {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .card_list > li {
+    min-width: 0;
+    width: 100%;
+  }
+}
 

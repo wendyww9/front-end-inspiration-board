@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import './NewBoardForm.css';
 
 const KDefaultBoardState = {
   title: '',
@@ -49,12 +50,15 @@ const NewBoardForm = ({ onCreateBoard }) => {
   };
   return (
     <form className="new_board_form" onSubmit={handleSubmit}>
+      
       <label htmlFor="board_name">Board Name</label>
       { makeControlledInput('title') }
-
+    
       <label htmlFor="owner_name">Owner Name</label>
       { makeControlledInput('owner') }
       
+      <p>Preview: {formData.title} - {formData.owner}</p>
+
       { errorData && <div className="error_message">{errorData}</div> }
       <button type="submit" className="create_board_button">Create Board</button>
     </form>
