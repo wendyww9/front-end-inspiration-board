@@ -1,12 +1,62 @@
- # React + Vite
+# Goal
+Our goal is to create a digital inspiration board.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Users should be able to create one or more boards.
 
-Currently, two official plugins are available:
+Then, a user can select a single board. When a user selects a board, they can see all the cards associated with that board.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Users can even "+1" the cards that they agree with!
 
-## Expanding the ESLint configuration
+We will use this project as a chance to see how the front-end layer and back-end layer interact. This is also an opportunity to bring some creativity to the UI.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# One-time Project Setup
+
+## Clone
+
+Clone the forked repo. Do _not_ clone this inside of another project folder, because that will cause issues.
+
+## Scaffold the App
+
+Create a new React app within this project folder. **You must perform this within this front-end project folder**.
+
+```bash
+$ npm create vite@latest . -- --template react
+```
+
+## Add `axios`
+
+Install axios:
+
+```bash
+$ npm install axios@latest
+```
+
+## Creating a `.env` File
+
+Create a file named `.env`.
+
+The front-end layer needs to send API requests to the back-end layer. In order to handle this, the front-end layer repo **must** include a `.env` file with this line:
+
+```
+VITE_APP_BACKEND_URL=http://localhost:5000
+```
+
+Note that this `VITE_APP_BACKEND_URL` _must_ include `http://`.
+
+Use this environment variable to send your API requests. You can read it by using the expression `import.meta.env.VITE_APP_BACKEND_URL`. For example, we may use it like this in any component:
+
+```js
+const VITE_APP_BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL
+
+axios.get(`${VITE_APP_BACKEND_URL}/boards`, {
+    // ...
+```
+
+This will make Render deployment easier.
+
+## Commit and Push
+
+Commit and push your files to your repo, especially including the `package.json` file!
+
+</details>
+
